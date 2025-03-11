@@ -108,12 +108,12 @@ You can run the project either through:
     cd Application
     ```
 
-4.Install dependancies first. 
+4. Install dependancies first. 
     ```sh
     pip install -r application/requirements.txt
     ```
 
-5.Launch the Streamlit app.
+5. Launch the Streamlit app.
     ```sh
     streamlit run app.py
     ```
@@ -121,29 +121,6 @@ You can run the project either through:
 6. You can now view the app on your browser running on [localhost:8501](http://localhost:8501).
 
 7. To stop the application, press Ctrl+C.
-
----
-
-
-## Additional Notes
-
-- The docker-compose.yml file provided first downloads the images for ganache and streamlit-app from Docker hub and then starts these containers using docker-compose up.
-
-- If you want to build your own images, I have provided the Dockerfiles for ganache (Dockerfile.ganache) and streamlit-app (Dockerfile.streamlit). Before building the images, first make the below changes in application/connection.py and truffle-config.js:
-
-    In **application/connection.py**, on line 6:
-    ```python
-    w3 = Web3(Web3.HTTPProvider('http://ganache:8545'))
-    ```
-    
-    In **truffle-config.js**, on line 4:
-    ```javascript
-    host: "ganache",
-    ```
-
-    This changes the host to "ganache" which is the service defined in docker-compose.yml.
-
-    After making these changes, you can build the images using `docker-compose build`. After this, you can use `docker-compose up` to start the containers and `docker-compose down` to stop them.
 
 ---
 
